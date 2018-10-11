@@ -5,24 +5,49 @@ class LinkedList():
     def get_head(self):
         if(self.head != None):
             return self.head
-        else:
-            raise Exception('None head')
-            return
 
     def append_node(self,new_node):
         if(self.head == None):
             self.head = new_node
         else:
-            head = self.get_head()
-            if(head != None):
-                node = head
-                while(node.has_next()):
-                    node = node.get_next()
-                node.set_next(new_node)
-            else:
-                raise Exception('Node Head node')
-                return
+            node = self.get_head()            
+            while(node.has_next()):
+                node = node.get_next()
+            node.set_next(new_node)
     
+    def delete_node(self,value):
+        if(self.head == None):
+            raise Exception('None head')
+            return
+        elif(self.head.get_value() == value):
+            aux = self.head.get_next()
+            self.head.set_next(None)
+            self.head = aux
+        else:
+            node = self.get_head()
+            aux_next = self.get_head().get_next()
+            aux_2_next = self.get_head().get_next().get_next()
+            while(aux_next.has_next()):
+                if(aux_next.get_value() == value):
+                    node.set_next(aux_2_next)
+                    aux_next.set_next(None)
+                    break
+                else:
+                    node = node.get_next()
+                    aux_next = aux_next.get_next()
+                    aux_2_next = aux_2_next.get_next()
+        
+    def clear_all(self):
+        if(self.head == None):
+            raise Exception('Empty LinkedList')
+            return
+        else:
+            if(self.head.get_value() != None):
+                self.delete_node(self.head.get_value())
+                self.clear_all()
+            else:
+                return self
+  
     def percorror_linked(self):
         head = self.get_head()
         if(head != None):
@@ -32,8 +57,17 @@ class LinkedList():
                 node = node.get_next()
                 print(node.get_value())
         else:
-            raise Exception('None head node')
+            raise Exception('Empty LinkedList')
             return
 
-if __name__ == '__main__':
-    LinkedList()
+    def linked_list_len(self):
+        head = self.get_head()
+        if(head == None):
+            return 0
+        else:
+            final_len = 1 
+            node = head
+            while(node.has_next()):
+                final_len += 1
+                node = node.get_next()
+            return final_len 

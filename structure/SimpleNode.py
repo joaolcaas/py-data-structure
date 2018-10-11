@@ -26,6 +26,3 @@ class SimpleNode:
         if(self.get_next() != None):
             return True
         return False
-
-if __name__ == '__main__':
-    SimpleNode()
