@@ -8,6 +8,8 @@ Implemented linked list in python
         - copy
         - findMin
         - findMax
+        - isEmpty
+        - sort
     Criar módulo pip install
     Criar mais estururas (double, stack, queue)
     
