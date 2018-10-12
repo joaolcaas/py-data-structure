@@ -57,8 +57,7 @@ class LinkedList():
                 node = node.get_next()
                 print(node.get_value())
         else:
-            raise Exception('Empty LinkedList')
-            return
+            print('Empty Linked')
 
     def linked_list_len(self):
         head = self.get_head()
@@ -103,3 +102,11 @@ class LinkedList():
         if(head == None):
             return True
         return False
+    
+    def copy(self):
+        head = self.get_head()
+        if(head == None):
+            return None
+        else:
+            linked_copy = self
+            return linked_copy

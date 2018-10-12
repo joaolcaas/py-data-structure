@@ -30,5 +30,10 @@ print('list emtpy')
 a.percorror_linked()
 d = a.findMax()
 print d
+copy = a.copy()
+print('linked a')
+a.percorror_linked()
+print('linked copy')
+copy.percorror_linked()
 
 
