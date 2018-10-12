@@ -6,8 +6,6 @@ Implemented linked list in python
     Criar class Node; (OK)
     Criar métodos para a linked list funcionar: (OK)
         - copy
-        - findMin
-        - findMax
         - isEmpty
         - sort
     Criar módulo pip install

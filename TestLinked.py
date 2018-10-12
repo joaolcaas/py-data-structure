@@ -7,6 +7,8 @@ n2 = no.SimpleNode(2)
 n3 = no.SimpleNode(11)
 a = lk.LinkedList()
 a.append_node(n1)
+er = a.isEmpty()
+print er
 b = a.findMin()
 print('menor')
 print(b)

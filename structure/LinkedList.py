@@ -97,3 +97,9 @@ class LinkedList():
                     min = node.get_next().get_value()
                 node = node.get_next()
             return min
+
+    def isEmpty(self):
+        head = self.get_head()
+        if(head == None):
+            return True
+        return False
