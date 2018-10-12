@@ -71,3 +71,29 @@ class LinkedList():
                 final_len += 1
                 node = node.get_next()
             return final_len 
+    
+    def findMin(self):
+        head = self.get_head()
+        if(head == None):
+            return 0
+        else:
+            node = head
+            min = node.get_value()
+            while(node.has_next()):
+                if(node.get_next().get_value() < min):
+                    min = node.get_next().get_value()
+                node = node.get_next()
+            return min
+
+    def findMax(self):
+        head = self.get_head()
+        if(head == None):
+            return 0
+        else:
+            node = head
+            min = node.get_value()
+            while(node.has_next()):
+                if(node.get_next().get_value() > min):
+                    min = node.get_next().get_value()
+                node = node.get_next()
+            return min
