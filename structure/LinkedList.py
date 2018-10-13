@@ -112,3 +112,17 @@ class LinkedList():
         else:
             linked_copy = self
             return linked_copy
+
+    def tostring(self):
+        head = self.get_head()
+        if(head == None):
+            print("Empty Linked")
+        else:
+            node = head
+            count = 1
+            out = "position: " + str(count) +  " "  + "value: "  + str(node.get_value()) + "\n"
+            while(node.has_next()):
+                count += 1
+                out += "position: " + str(count) +  " "  + "value: "  + str(node.get_next().get_value()) + "\n"
+                node = node.get_next()
+            return out
