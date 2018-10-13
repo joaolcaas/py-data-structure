@@ -39,14 +39,16 @@ class LinkedList():
         
     def clear_all(self):
         if(self.head == None):
-            raise Exception('Empty LinkedList')
-            return
+            print("Empty Linked list")
         else:
+            self.head = None
+            '''
             if(self.head.get_value() != None):
                 self.delete_node(self.head.get_value())
                 self.clear_all()
             else:
                 return self
+            '''
   
     def percorror_linked(self):
         head = self.get_head()
