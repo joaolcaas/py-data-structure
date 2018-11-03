@@ -7,6 +7,7 @@ Implemented linked list in python
     Criar métodos para a linked list funcionar: (OK)
         - addToStart
         - pop() : pop method removes last element of the Linked List
+        - search
         - reverse() : method that returns reversed linked list
         - sort
     Criar módulo pip install
