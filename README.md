@@ -5,6 +5,7 @@ Implemented structures in python
 ```sh
     - LinkedList
     - DoubleLinkedList
+    - BST
 ```
 **To do**
 ```sh
