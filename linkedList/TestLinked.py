@@ -1,5 +1,5 @@
-from structure import LinkedList as lk
-from structure import SimpleNode as no
+from LinkedList import LinkedList as lk
+from SimpleNode import SimpleNode as no
 
 
 n1 = no.SimpleNode(130)
