@@ -69,4 +69,14 @@ class BST():
         else:
             prev.rigth = actual
 
-        
+    
+    def delete_node(self,value):
+        """
+        Rules:
+            If is a leaf, just delete (left = none and rigth = none)
+            Node has one childrem: 
+                No rigth child: set parent of deleted node to left child of deleted node
+                No left child: set parent of deleted node to left child of deleted node
+            Node has two childrens -> find the largest in left subtree and turn it the new node
+            
+        """
