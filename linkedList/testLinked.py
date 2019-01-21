@@ -2,11 +2,12 @@ from LinkedList import LinkedList as lk
 from SimpleNode import SimpleNode as no
 
 
-n1 = no.SimpleNode(130)
-n2 = no.SimpleNode(2)
-n3 = no.SimpleNode(11)
-a = lk.LinkedList()
-a.append_node(n1)
+
+a = lk()
+a.append_node(1)
+print(a.tostring())
+a.append_node(2)
+print(a.tostring())
 #er = a.isEmpty()
 #print er
 #b = a.findMin()
@@ -20,13 +21,13 @@ a.append_node(n1)
 #print(c)
 #b = a.get_head()
 #c = b.get_next()
-a.append_node(n2)
-a.append_node(n3)
-print('list 1')
-a.percorror_linked()
-print('----- tostring-------')
-b = a.tostring()
-print b
+# a.append_node(n2)
+# a.append_node(n3)
+# print('list 1')
+# a.percorror_linked()
+# print('----- tostring-------')
+# b = a.tostring()
+# print b
 '''
 #print('list emtpy')
 #a.clear_all()

@@ -1,3 +1,5 @@
+from SimpleNode import SimpleNode as no
+
 class LinkedList():
     def __init__(self):
         self.head = None
@@ -6,14 +8,14 @@ class LinkedList():
         if(self.head != None):
             return self.head
 
-    def append_node(self,new_node):
+    def append_node(self,value):
         if(self.head == None):
-            self.head = new_node
+            self.head = no(value)
         else:
             node = self.get_head()            
             while(node.has_next()):
                 node = node.get_next()
-            node.set_next(new_node)
+            node.set_next(no(value))
     
     def delete_node(self,value):
         if(self.head == None):
