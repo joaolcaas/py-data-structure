@@ -1,3 +1,4 @@
+from nodeBST import nodeBST
 class BST():
     """
     BST tree implemantation
@@ -7,7 +8,7 @@ class BST():
     def __init__(self):
         self.root = None
     
-    def populate_root(self,node):
+    def populate_root(self,value):
         """
         Populate the first bst's node(root)
 
@@ -15,12 +16,12 @@ class BST():
             node: a node that contains a values
         """
         if(self.root == None):
-            self.root = node
+            self.root = nodeBST(value)
         else:
             raise Exception('Root not empty')
             return
     
-    def add_node(self,node):
+    def add_node(self,value):
         """
         Function to add nodes into the bst tree. 
         Works like any bst tree:
@@ -33,38 +34,37 @@ class BST():
         """
         prev = None
         actual = self.root
-        algo = None
 
         while True:
             if(actual == None):
                 break
 
-            elif(actual.get_value() == node.get_value()):
+            elif(actual.get_value() == value):
                 raise Exception('Equals node')
                 
 
-            elif(actual.get_value() > node.get_value()):
+            elif(actual.get_value() > value):
                 prev = actual
                 actual = actual.get_left()
-                algo = 'left'
+                
                 
 
-            elif(actual.get_value() < node.get_value()):
+            elif(actual.get_value() < value):
                 prev = actual
                 actual = actual.get_rigth()
-                algo = 'rigth'
+                
 
         
         #actual now is the node        
         
-        actual = node
+        actual = nodeBST(value)
         
         #his dad is his previous
         
         actual.prev = prev
 
-        #his father now have the reference for him as left 
-        if(algo == 'left'):
+        #his father now have the reference for him as left or rigth
+        if(value < prev.get_value()):
             prev.left = actual
         else:
             prev.rigth = actual
