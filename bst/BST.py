@@ -59,6 +59,10 @@ class BST():
         else:
             return False
 
+    def search(self,value):
+        
+    def predecessor(self,node):
+
     def delete_node(self,value):
         """
         Rules:
@@ -120,8 +124,8 @@ class BST():
             if(prev == None):
                 self.root = left_chil
             else:
-                prev.prev.left = actual
-                actual.prev = prev.prev
+                prev.left = left_chil
+                actual.prev = prev
 
         #rigth node is not empty 
         elif(left_chil == None and rigth_chil != None):
@@ -129,5 +133,10 @@ class BST():
             if(prev == None):
                 self.root = rigth_chil
             else:
-                prev.prev.rigth = actual
-                actual.prev = prev.prev
+                prev.rigth = rigth_chil
+                actual.prev = prev
+
+        #has two childnres
+        elif(left_chil != None and rigth_chil != None):
+        
+
