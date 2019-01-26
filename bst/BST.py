@@ -38,7 +38,7 @@ class BST():
                 break
 
             elif(actual.get_value() == value):
-                raise Exception('Equals node')
+                return 'Equals node'
                 
             elif(actual.get_value() > value):
                 prev = actual
@@ -60,9 +60,45 @@ class BST():
             return False
 
     def search(self,value):
+        """
+        Search for a value into a created BST
+        Args:
+            value: a node value to search in BST
+        """
+
+        actual = self.root
+
+        if(actual == None):
+            raise Exception("BST is empty")
+            return 
+
+        while True:
+            if(actual == None):
+                return "Searched value not found"
+                break
+
+            elif(actual.get_value() == value):
+                return actual.get_value()
+                break
+
+            elif(value > actual.get_value()):
+                actual = actual.get_rigth()
+
+            elif(value < actual.get_value()):
+                actual = actual.get_left()
         
     def predecessor(self,node):
+        """
+        Search for a predecessor from a node.
+            Predecessor will the higher value at the left node's subtree
+        Args:
+            node: a node that contains a values
+        """
 
+        actual = node
+
+
+        
     def delete_node(self,value):
         """
         Rules:
@@ -139,4 +175,37 @@ class BST():
         #has two childnres
         elif(left_chil != None and rigth_chil != None):
         
+    def max_node(self):
+        """
+        Return the max value in BST
+            (The depest children at BST rigth)
+        """
 
+        max = self.root
+
+        if(actual == None):
+            raise Exception("BST is empty")
+            return 
+
+        while actual.get_rigth() != None:
+            actual = actual.get_rigth()
+
+        return actual
+
+
+    def min_node(self):
+        """
+        Return the min value in BST
+            (The depest children at BST left)
+        """
+
+        min = self.root
+
+        if(actual == None):
+            raise Exception("BST is empty")
+            return 
+        
+        while actual.get_left != None:
+            actual = actual.get_left()
+
+        return actual
