@@ -9,8 +9,8 @@ class nodeBST:
             rigth: node at his rigth
             left: node at his left
     """
-    
-    def __init__(self,value):
+
+    def __init__(self, value):
         """
             Args:
                 value: node integer values
@@ -20,14 +20,14 @@ class nodeBST:
         self.prev = None
         self.rigth = None
         self.left = None
-    
+
     def get_value(self):
         """
         Return a bstNode value
         """
 
         return self.value
-    
+
     def get_left(self):
         """
         Return a bstNode left node
@@ -41,23 +41,25 @@ class nodeBST:
         """
 
         return self.rigth
-    
+
     def get_previous(self):
         """
         Return a bstNode previous node
         """
         return self.prev
 
-class BST():
+
+class BST:
     """
     BST tree implemantation
     Attributes:
             root: first node in BST tree
     """
+
     def __init__(self):
         self.root = None
-    
-    def add_node(self,value):
+
+    def add_node(self, value):
         """
         Function to add nodes into the bst tree. 
         Works like any bst tree:
@@ -72,43 +74,42 @@ class BST():
         actual = self.root
 
         while True:
-            if(actual == None):
+            if actual == None:
                 actual = nodeBST(value)
                 actual.prev = prev
-                
-                if(prev == None):
+
+                if prev == None:
                     self.root = nodeBST(value)
 
-                elif(value < prev.get_value()):
+                elif value < prev.get_value():
                     prev.left = actual
                 else:
                     prev.rigth = actual
 
                 break
 
-            elif(actual.get_value() == value):
-                return 'Equals node'
-                
-            elif(actual.get_value() > value):
+            elif actual.get_value() == value:
+                return "Equals node"
+
+            elif actual.get_value() > value:
                 prev = actual
                 actual = actual.get_left()
-                
-            elif(actual.get_value() < value):
+
+            elif actual.get_value() < value:
                 prev = actual
                 actual = actual.get_rigth()
 
-    
     def is_empty(self):
         """
             Check if bst tree has elements
         """
 
-        if(self.root == None):
+        if self.root == None:
             return True
         else:
             return False
 
-    def search(self,value):
+    def search(self, value):
         """
         Search for a value into a created BST
         Args:
@@ -117,26 +118,26 @@ class BST():
 
         actual = self.root
 
-        if(actual == None):
+        if actual == None:
             raise Exception("BST is empty")
-            return 
+            return
 
         while True:
-            if(actual == None):
+            if actual == None:
                 return "Searched value not found"
                 break
 
-            elif(actual.get_value() == value):
+            elif actual.get_value() == value:
                 return actual.get_value()
                 break
 
-            elif(value > actual.get_value()):
+            elif value > actual.get_value():
                 actual = actual.get_rigth()
 
-            elif(value < actual.get_value()):
+            elif value < actual.get_value():
                 actual = actual.get_left()
-        
-    def predecessor(self,node):
+
+    def predecessor(self, node):
         """
         Search for a predecessor from a node.
             Predecessor will the higher value at the left node's subtree
@@ -146,9 +147,7 @@ class BST():
 
         actual = node
 
-
-        
-    def delete_node(self,value):
+    def delete_node(self, value):
         """
         Rules:
             If is a leaf, just delete (left = none and rigth = none)
@@ -164,66 +163,66 @@ class BST():
         prev = None
         actual = self.root
 
-        if(actual == None):
+        if actual == None:
             raise Exception("BST is empty")
-            return 
+            return
 
         while True:
-            
-            if(actual == None):
-                #There is no value
-                raise Exception("Value not found")
-                return 
 
-            elif(actual.get_value() == value):
-                #achou o valor
+            if actual == None:
+                # There is no value
+                raise Exception("Value not found")
+                return
+
+            elif actual.get_value() == value:
+                # achou o valor
                 break
 
-            elif(actual.get_value() > value):
-                #vai para a esquerda
+            elif actual.get_value() > value:
+                # vai para a esquerda
                 prev = actual
                 actual = actual.get_left()
 
-            elif(actual.get_value() < value):
-                #vai para a direita
+            elif actual.get_value() < value:
+                # vai para a direita
                 prev = actual
                 actual = actual.get_rigth()
-        
+
         left_chil = actual.left
         rigth_chil = actual.rigth
-        
-        #leaf node
-        if(left_chil == None and rigth_chil == None):
-            #root case
-            if(prev == None):
+
+        # leaf node
+        if left_chil == None and rigth_chil == None:
+            # root case
+            if prev == None:
                 self.root = None
             else:
-                if(value < prev.get_value()):
+                if value < prev.get_value():
                     prev.left = None
                 else:
                     prev.rigth = None
-        
-        #left node is not empty
-        elif(left_chil != None and rigth_chil == None):
-            #root case
-            if(prev == None):
+
+        # left node is not empty
+        elif left_chil != None and rigth_chil == None:
+            # root case
+            if prev == None:
                 self.root = left_chil
             else:
                 prev.left = left_chil
                 actual.prev = prev
 
-        #rigth node is not empty 
-        elif(left_chil == None and rigth_chil != None):
-            #root case
-            if(prev == None):
+        # rigth node is not empty
+        elif left_chil == None and rigth_chil != None:
+            # root case
+            if prev == None:
                 self.root = rigth_chil
             else:
                 prev.rigth = rigth_chil
                 actual.prev = prev
 
-        #has two childnres
-        #elif(left_chil != None and rigth_chil != None):
-        
+        # has two childnres
+        # elif(left_chil != None and rigth_chil != None):
+
     def max_node(self):
         """
         Return the max value in BST
@@ -232,15 +231,14 @@ class BST():
 
         max = self.root
 
-        if(actual == None):
+        if actual == None:
             raise Exception("BST is empty")
-            return 
+            return
 
         while actual.get_rigth() != None:
             actual = actual.get_rigth()
 
         return actual
-
 
     def min_node(self):
         """
@@ -250,10 +248,10 @@ class BST():
 
         min = self.root
 
-        if(actual == None):
+        if actual == None:
             raise Exception("BST is empty")
-            return 
-        
+            return
+
         while actual.get_left != None:
             actual = actual.get_left()
 
